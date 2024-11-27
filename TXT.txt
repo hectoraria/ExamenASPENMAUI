@@ -1,0 +1,73 @@
+DAL
+	private List<clsMision> listaMisiones = new List<ClsMision>{}
+	private List<clsCandidato> listadoCandidatos = new List<ClsCandidato>{}
+
+	public static List<clsMision> obtenerListaCompletaMisionesDAL(){}
+	public static List<clsCandidato> obtenerListaCompletaCandidatosDAL(){}
+	public static clsMision obtenerMisionPorIdDAL(int idMision){}
+	public static clsCandidato obtenerCandidatoPorIdDAL(int idCandidato){}
+
+BL
+	public static List<clsMision> obtenerListaCompletaMisionesBL(){}
+	//Añadir  el filtrado mandado por Tony
+	public static List<clsCandidato> obtenerListaCompletaCandidatosBL(){}
+	public static clsMision obtenerMisionPorIdBL(int idMision){}
+	public static clsCandidato obtenerCandidatoPorIdBL(int idCandidato){}
+
+ENT
+	clsCandidato
+	+int id {get}
+	+String nombre {get,set}
+	+String Apellidos {get,set}
+	+String Direccion {get,set}
+	+Int Telefono {get,set}
+	+DateTime FechaNac {get,set}
+	+Double PrecioMedio {get,set}
+
+		Constructores
+		clsCandidato(){ }
+		clsCandidato(id,nombre,apellidos,direccion,telefono,fechaNac,precioMedio)
+		{
+
+		}
+
+
+
+	clsMision
+	+int Id {get}
+	+String Nombre{get,set}
+	+int Dificultad{get,set}
+		
+		Constructores
+		clsMision(){ }
+		clsMision(id,nombre,dificultad)
+		{
+
+		}
+UI
+
+	Model
+		clsCandidatoConEdad : Candidato
+
+		+int Edad{get}
+
+
+
+	VM
+		
+
+		ListadoMisionCandidatoConEdadVM: INotify
+			List<clsMision> ListadoMisiones {get,}
+			List<clsCandidatoConEdad> ListadosCandidatoConEdad {get,}
+			clsMision misionSeleccionada
+			clsCandidatoEdad candidatoConEdadSeleccionado
+			DelegateCommand Detalles {get,}
+			DelegateCommand verCandidatosConEdad {get,}
+
+		
+		DetalleCandidatoConEdadVM: INotify
+			clsCandidatoEdad CandidatoConEdad {get,}
+			DelegateCommand VolverListado{get,}
+
+		Utils
+			clsCommand

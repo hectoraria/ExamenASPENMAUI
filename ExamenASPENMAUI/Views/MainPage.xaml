@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenASPENMAUI.Views.MainPage"
+             xmlns:vm="clr-namespace:ExamenASPENMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:clsListadosMisionesCandidatosVM></vm:clsListadosMisionesCandidatosVM>
+    </ContentPage.BindingContext>
+             
+    
+    <AbsoluteLayout>
+    <ScrollView
+        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+        AbsoluteLayout.LayoutFlags="All">
+        
+        <VerticalStackLayout Padding="20" Spacing="15">
+                <Picker Title="Misiones"
+                        ItemsSource="{Binding ListadoMisiones}"
+                        SelectedItem="{Binding MisionSeleccionada}"
+                        ItemDisplayBinding="{Binding Nombre}"
+                        />
+                <!-- ListView con los elementos -->
+                <ListView ItemsSource="{Binding ListadoCandidatosConEdad}"
+          SelectedItem="{Binding CandidatoSeleccionado}">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                
+
+                                    
+                                        
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Nombre}"
+                                   TextColor="#ffffff"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold">
+                                            </Label>
+                                            <Label Text="{Binding Apellidos}" 
+                                            FontSize="Small" 
+                                            TextColor="#757575"/>
+                                            <Label Text="{Binding Pais}" 
+                                            FontSize="Small" 
+                                            TextColor="#757575"/>
+                                            <Label Text="{Binding Edad}" 
+                                            FontSize="Small" 
+                                            TextColor="#757575"/>
+                                        </VerticalStackLayout>
+                                   
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        
+    </ScrollView>
+        <Button Text="Detalles" 
+         BackgroundColor="Green"
+         TextColor="White"
+         FontSize="Large"
+         CornerRadius="25"
+         WidthRequest="50"
+         HeightRequest="50"
+         AbsoluteLayout.LayoutBounds="0.99, 0.9, 50, 50"
+         AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+    </AbsoluteLayout>
+</ContentPage>
