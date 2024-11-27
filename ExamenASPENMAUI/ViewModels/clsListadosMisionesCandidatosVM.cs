@@ -1,7 +1,9 @@
-﻿using BL;
+﻿
+using BL;
 using ENT;
 using ExamenASPENMAUI.Models;
 using ExamenASPENMAUI.ViewModels.Utils;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +22,9 @@ namespace ExamenASPENMAUI.ViewModels
         private List<clsMision> listadoMisiones;
         private List<clsCandidato> listadoCandidatos;
         private List<clsCandidatoConEdad> listadoCandidatosConEdad;
+        private bool mostrar = false;
         private clsMision misionSeleccionada;
         private clsCandidato candidatoSeleccionado;
-        private DelegateCommand misionSeleccionarCommand;
         private DelegateCommand detallesCommand;
         #endregion
 
@@ -37,6 +39,10 @@ namespace ExamenASPENMAUI.ViewModels
             get { return listadoMisiones; }
         }
 
+        public bool Mostrar
+        {
+            get { return mostrar; }
+        }
         public clsMision MisionSeleccionada
         {
             get { return misionSeleccionada; }
@@ -57,13 +63,12 @@ namespace ExamenASPENMAUI.ViewModels
         public clsCandidato CandidatoSeleccionado
         {
             get { return candidatoSeleccionado; }
-            set { candidatoSeleccionado = value; }
+            set { candidatoSeleccionado = value;
+                detallesCommand.RaiseCanExecuteChanged();
+            }
         }
 
-        public DelegateCommand MisionSeleccionarCommand
-        {
-            get { return misionSeleccionarCommand; }
-        }
+       
 
         public DelegateCommand DetallesCommand
         {
@@ -77,21 +82,33 @@ namespace ExamenASPENMAUI.ViewModels
         public clsListadosMisionesCandidatosVM()
         {
             listadoMisiones = clsListadosBL.obtenerListaCompletaMisionesBL();
-            misionSeleccionarCommand = new DelegateCommand(misionSeleccionarCommandExecute);
+      
             detallesCommand = new DelegateCommand(detallesCommandExecute);
         }
         
         #endregion
 
         #region Commands
-        private async void misionSeleccionarCommandExecute()
-        {
-
-        }
+        
 
         private async void detallesCommandExecute()
         {
+            Dictionary<string, object> diccionarioMandar = new Dictionary<string, object>();
 
+            diccionarioMandar.Add("Candidato", CandidatoSeleccionado);
+
+            await Shell.Current.GoToAsync("///Detalles", diccionarioMandar);
+        }
+
+        private bool detallesCommandCanExecute()
+        {
+            bool activar=false;
+            if(candidatoSeleccionado!=null)
+            {
+                activar = true;
+            }
+
+            return activar;
         }
 
         #endregion

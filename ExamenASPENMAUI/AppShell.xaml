@@ -16,6 +16,6 @@
     <ShellContent
         Title="DetallesCandidato"
         ContentTemplate="{DataTemplate views:DetallesCandidato}"
-        Route="DetallesCandidato"/>
+        Route="Detalles"/>
 
 </Shell>

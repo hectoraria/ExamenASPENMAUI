@@ -2,11 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenASPENMAUI.Views.DetallesCandidato"
-             Title="DetallesCandidato">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="DetallesCandidato"
+             xmlns:vm="clr-namespace:ExamenASPENMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:DetallesVM></vm:DetallesVM>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Padding="10">
+        <Label Text="{Binding CandidatoDetalles.Id}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Nombre}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Apellidos}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Edad}"></Label>
+        <Label Text="{Binding CandidatoDetalles.FechaNac}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Direccion}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Pais}"></Label>
+        <Label Text="{Binding CandidatoDetalles.Telefono}"></Label>
+        <Label Text="{Binding CandidatoDetalles.PrecioMedio}"></Label>
+        <Button Command="{Binding VolverCommand}"></Button>
     </VerticalStackLayout>
 </ContentPage>

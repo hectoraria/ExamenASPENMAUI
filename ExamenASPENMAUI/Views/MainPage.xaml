@@ -56,15 +56,7 @@
             </VerticalStackLayout>
         
     </ScrollView>
-        <Button Text="Detalles" 
-         BackgroundColor="Green"
-         TextColor="White"
-         FontSize="Large"
-         CornerRadius="25"
-         WidthRequest="50"
-         HeightRequest="50"
-         AbsoluteLayout.LayoutBounds="0.99, 0.9, 50, 50"
-         AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        <Button Command="{Binding DetallesCommand}" AbsoluteLayout.LayoutBounds="0.99,0.80,100,50" AbsoluteLayout.LayoutFlags="PositionProportional" Text="Detalles"></Button>
 
     </AbsoluteLayout>
 </ContentPage>
