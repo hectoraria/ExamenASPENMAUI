@@ -21,16 +21,10 @@ namespace BL
             {
                 switch (dificultad) 
                 {
-                    case 1:
-                        {
-                            if (c.Pais == "USA")
-                            {
-                                listaCandidatosFiltrados.Add(c);
-                            }
-                            break;
-                        }
+                    
+                    
 
-                    case 2:
+                    case 1 or 2:
                         {
                             if (c.Pais == "USA")
                             {

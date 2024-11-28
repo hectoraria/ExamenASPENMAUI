@@ -18,6 +18,6 @@
         <Label Text="{Binding CandidatoDetalles.Pais}"></Label>
         <Label Text="{Binding CandidatoDetalles.Telefono}"></Label>
         <Label Text="{Binding CandidatoDetalles.PrecioMedio}"></Label>
-        <Button Command="{Binding VolverCommand}"></Button>
+        <Button Command="{Binding VolverCommand}" Text="Volver"></Button>
     </VerticalStackLayout>
 </ContentPage>

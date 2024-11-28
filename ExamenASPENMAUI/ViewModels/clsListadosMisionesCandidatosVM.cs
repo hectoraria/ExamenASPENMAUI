@@ -22,7 +22,7 @@ namespace ExamenASPENMAUI.ViewModels
         private List<clsMision> listadoMisiones;
         private List<clsCandidato> listadoCandidatos;
         private List<clsCandidatoConEdad> listadoCandidatosConEdad;
-        private bool mostrar = false;
+        
         private clsMision misionSeleccionada;
         private clsCandidato candidatoSeleccionado;
         private DelegateCommand detallesCommand;
@@ -39,16 +39,13 @@ namespace ExamenASPENMAUI.ViewModels
             get { return listadoMisiones; }
         }
 
-        public bool Mostrar
-        {
-            get { return mostrar; }
-        }
+        
         public clsMision MisionSeleccionada
         {
             get { return misionSeleccionada; }
             set { misionSeleccionada = value;
-                NotifyPropertyChanged("MisionSeleccionada");
-                listadoMisiones = clsListadosBL.obtenerListaCompletaMisionesBL();
+                
+                
                 listadoCandidatos = clsListadosBL.obtenerListaCompletaCandidatosBL(misionSeleccionada.Dificultad);
                 listadoCandidatosConEdad = new List<clsCandidatoConEdad>();
                 foreach (clsCandidato c in listadoCandidatos)
