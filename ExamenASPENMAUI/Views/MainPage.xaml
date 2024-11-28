@@ -27,27 +27,31 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                
+                                <Frame Padding="10"
+                                    Margin="5"
+                                    BorderColor="#E0E0E0"
+                                    BackgroundColor="Black"
+                                    InputTransparent="False">
 
-                                    
-                                        
-                                        <VerticalStackLayout>
-                                            <Label Text="{Binding Nombre}"
+
+
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Nombre}"
                                    TextColor="#ffffff"
                                    FontSize="Medium"
                                    FontAttributes="Bold">
-                                            </Label>
-                                            <Label Text="{Binding Apellidos}" 
+                                        </Label>
+                                        <Label Text="{Binding Apellidos}" 
                                             FontSize="Small" 
                                             TextColor="#757575"/>
-                                            <Label Text="{Binding Pais}" 
+                                        <Label Text="{Binding Pais}" 
                                             FontSize="Small" 
                                             TextColor="#757575"/>
-                                            <Label Text="{Binding Edad}" 
+                                        <Label Text="{Binding Edad}" 
                                             FontSize="Small" 
                                             TextColor="#757575"/>
-                                        </VerticalStackLayout>
-                                   
+                                    </VerticalStackLayout>
+                                </Frame> 
                                 
                             </ViewCell>
                         </DataTemplate>
